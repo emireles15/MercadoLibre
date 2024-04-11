@@ -138,7 +138,7 @@
               <av:Point x:Key="ShapeLocation">90.4,156.4</av:Point>
               <av:Size x:Key="ShapeSize">79.2,87.2</av:Size>
               <av:PointCollection x:Key="TrueConnector">90.4,200 60.400000000000006,200 60.400000000000006,263.6 120,263.6 120,293.6</av:PointCollection>
-              <av:PointCollection x:Key="FalseConnector">169.60000000000002,200 350,200</av:PointCollection>
+              <av:PointCollection x:Key="FalseConnector">169.60000000000002,200 199.60000000000002,200 199.60000000000002,190 380,190</av:PointCollection>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
           <FlowDecision.True>
@@ -147,7 +147,7 @@
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <av:Point x:Key="ShapeLocation">20,293.6</av:Point>
                   <av:Size x:Key="ShapeSize">200,52.8</av:Size>
-                  <av:PointCollection x:Key="ConnectorLocation">220,320 286,320 286,200 350,200</av:PointCollection>
+                  <av:PointCollection x:Key="ConnectorLocation">220,320 261,320 261,324.04 327.6,324.04 327.6,190 380,190</av:PointCollection>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
               <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="AddingNewItem.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="200,52.8" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="AddingNewItem.xaml">
@@ -164,11 +164,11 @@
                 <FlowStep x:Name="__ReferenceID0">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <av:Point x:Key="ShapeLocation">350,173.6</av:Point>
+                      <av:Point x:Key="ShapeLocation">380,163.6</av:Point>
                       <av:Size x:Key="ShapeSize">200,52.8</av:Size>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="MonitoringPrices.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="200,52.8" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="MonitoringPrices.xaml">
+                  <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="MonitoringPrices.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="200,52.8" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="MonitoringPrices.xaml">
                     <ui:InvokeWorkflowFile.Arguments>
                       <scg:Dictionary x:TypeArguments="x:String, Argument" />
                     </ui:InvokeWorkflowFile.Arguments>
