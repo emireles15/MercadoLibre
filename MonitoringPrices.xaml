@@ -122,11 +122,6 @@
       <Variable x:TypeArguments="sd:DataTable" Name="dtUpdatedInfo" />
       <Variable x:TypeArguments="x:Int32" Name="NewRow" />
       <Variable x:TypeArguments="sd:DataTable" Name="dtData" />
-      <Variable x:TypeArguments="x:String" Name="FolderPath">
-        <Variable.Default>
-          <Literal x:TypeArguments="x:String">C:\Users\Windows10\Documents\UiPath\Proyectos\MercadoLibre\Data</Literal>
-        </Variable.Default>
-      </Variable>
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -142,7 +137,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:LogMessage>
-    <ui:ReadRange Range="{x:Null}" AddHeaders="True" DataTable="[dtURLs]" DisplayName="Read Range Workbook - FolderPath" sap:VirtualizedContainerService.HintSize="721.6,128" sap2010:WorkflowViewState.IdRef="ReadRange_3" SheetName="URL" WorkbookPath="[FolderPath+&quot;\Monitoring.xlsx&quot;]" />
+    <ui:ReadRange Range="{x:Null}" AddHeaders="True" DataTable="[dtURLs]" DisplayName="Read Range Workbook - FolderPath" sap:VirtualizedContainerService.HintSize="721.6,128" sap2010:WorkflowViewState.IdRef="ReadRange_3" SheetName="URL" WorkbookPath="[DataFolderPath+&quot;\Monitoring.xlsx&quot;]" />
     <ui:BuildDataTable DataTable="[dtUpdatedInfo]" DisplayName="Build Data Table" sap:VirtualizedContainerService.HintSize="721.6,100" sap2010:WorkflowViewState.IdRef="BuildDataTable_3" TableInfo="&lt;NewDataSet&gt;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xA;      &lt;xs:complexType&gt;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xA;            &lt;xs:complexType&gt;&#xA;              &lt;xs:sequence&gt;&#xA;                &lt;xs:element name=&quot;Product_x0020_Name&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xA;                  &lt;xs:simpleType&gt;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xA;                    &lt;/xs:restriction&gt;&#xA;                  &lt;/xs:simpleType&gt;&#xA;                &lt;/xs:element&gt;&#xA;                &lt;xs:element name=&quot;Price&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Discount_x0020_Price&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Discount&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Date&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;              &lt;/xs:sequence&gt;&#xA;            &lt;/xs:complexType&gt;&#xA;          &lt;/xs:element&gt;&#xA;        &lt;/xs:choice&gt;&#xA;      &lt;/xs:complexType&gt;&#xA;    &lt;/xs:element&gt;&#xA;  &lt;/xs:schema&gt;&#xA;&lt;/NewDataSet&gt;" />
     <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[dtURLs]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="721.6,2602.4" sap2010:WorkflowViewState.IdRef="ForEachRow_2">
       <ui:ForEachRow.Body>
@@ -265,11 +260,11 @@
                           </uix:NGetText>
                           <uix:NGetText DisplayName="Get Text 'Original Price'" sap:VirtualizedContainerService.HintSize="353.6,180.8" sap2010:WorkflowViewState.IdRef="NGetText_7" ScopeIdentifier="752f719e-9185-451f-aedf-5116f4434419" TextString="[OriginalPrice]" Version="V3">
                             <uix:NGetText.Target>
-                              <uix:TargetAnchorable BrowserURL="https://articulo.mercadolibre.com.mx/MLM-1906954783-tenis-running-en-carretera-hombre-nike-pegasus-38-_JM#reco_item_pos=0&amp;reco_backend=item_decorator&amp;reco_backend_type=function&amp;reco_client=home_items-decorator-legacy&amp;reco_id=bfb47ad2-d322-46c7-ab9a-dfaf3eb769e0&amp;c_id=/home/navigation-recommendations-seed/element&amp;c_uid=638f947d-6a88-4cfb-bacd-99c688a57153&amp;da_id=navigation&amp;da_position=0&amp;id_origin=/home/dynamic_access&amp;da_sort_algorithm=ranker" CvTextArea="1234, 712, 67, 18" CvType="AnyWordGroup" DesignTimeRectangle="818, 662, 63, 20" DesignTimeScaleFactor="1.25" ElementType="Text" FullSelectorArgument="&lt;webctrl class='andes-money-amount__fraction' parentid='price' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl class='andes-money-amount__fraction' parentid='price' tag='SPAN' type='' /&gt;" Guid="3bd05472-7908-47d6-8e51-f649b19a7942" ImageBase64="" InformativeScreenshot="aa9cae16f34932223419054f4507c087.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Tenis Running En Carretera Hombre Nike Pegasus 38 | Envío gratis' /&gt;" SearchSteps="FuzzySelector" Version="V3" Visibility="Interactive">
+                              <uix:TargetAnchorable BrowserURL="https://www.mercadolibre.com.mx/samsung-galaxy-s24-ultra-5g-dual-sim-512-gb-negro-titanio-12-gb-ram/p/MLM29893910?pdp_filters=category:MLM1055#searchVariation=MLM29893910&amp;position=2&amp;search_layout=stack&amp;type=product&amp;tracking_id=90f07aed-7b9d-415f-9c79-67ccc12c6ebf" CvTextArea="801, 610, 81, 20" CvType="AnyWordGroup" DesignTimeRectangle="818, 609, 63, 20" DesignTimeScaleFactor="1.25" ElementType="Text" FullSelectorArgument="&lt;webctrl class='andes-money-amount__fraction' parentid='ui-pdp-main-container' tag='SPAN' /&gt;" FuzzyAccuracy="0.8" FuzzySelectorArgument="&lt;webctrl class='andes-money-amount__fraction' parentid='ui-pdp-main-container' tag='SPAN' type='' /&gt;" Guid="7468946f-a740-46f5-8825-a6288ab1f431" ImageBase64="" InformativeScreenshot="71b1397d25213e79aa336c1f527a4b85.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Samsung Galaxy S24 Ultra 5G Dual SIM 512 GB negro titanio 12 GB RAM | Meses sin interés' /&gt;" SearchSteps="FuzzySelector" Version="V3" Visibility="Interactive">
                                 <uix:TargetAnchorable.Anchors>
-                                  <scg:List x:TypeArguments="uix:ITarget" Capacity="2">
-                                    <uix:Target CvTextArea="1416, 747, 95, 20" CvTextArgument="20% OFF" CvType="Text" DesignTimeRectangle="981, 693, 77, 31" ElementType="Text" FullSelectorArgument="&lt;webctrl class='andes-money-amount__discount' parentid='price' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl class='andes-money-amount__discount' parentid='price' tag='SPAN' type='' aaname='*' /&gt;" ImageBase64="" SearchSteps="FuzzySelector" />
-                                    <uix:Target CvTextArea="1267, 739, 145, 41" CvTextArgument="2,23920" CvType="Text" DesignTimeRectangle="836, 685, 137, 45" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='2,239' class='andes-money-amount__fraction' parentid='price' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='2,239' class='andes-money-amount__fraction' parentid='price' tag='SPAN' type='' /&gt;" ImageBase64="" SearchSteps="FuzzySelector" />
+                                  <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                                    <uix:Target DesignTimeRectangle="802, 414, 426, 97" ElementType="Text" FullSelectorArgument="&lt;webctrl tag='H1' /&gt;" FuzzyAccuracy="0.84" FuzzySelectorArgument="&lt;webctrl tag='H1' type='' class='ui-pdp-title' aaname='*' /&gt;" SearchSteps="FuzzySelector" />
+                                    <uix:Target CvTextArea="835, 637, 116, 40" CvTextArgument="21,318" CvType="Text" DesignTimeRectangle="836, 632, 114, 45" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='21,318' class='andes-money-amount__fraction' parentid='ui-pdp-main-container' tag='SPAN' /&gt;" FuzzyAccuracy="0.86" FuzzySelectorArgument="&lt;webctrl aaname='*' class='andes-money-amount__fraction' parentid='ui-pdp-main-container' tag='SPAN' type='' /&gt;" SearchSteps="FuzzySelector" />
                                   </scg:List>
                                 </uix:TargetAnchorable.Anchors>
                               </uix:TargetAnchorable>
@@ -335,7 +330,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:LogMessage>
-    <ui:ReadRange Range="{x:Null}" AddHeaders="False" DataTable="[dtData]" DisplayName="Read Range Workbook - Data Worksheet" sap:VirtualizedContainerService.HintSize="721.6,128" sap2010:WorkflowViewState.IdRef="ReadRange_4" SheetName="Data" WorkbookPath="[FolderPath+&quot;\Monitoring.xlsx&quot;]" />
+    <ui:ReadRange Range="{x:Null}" AddHeaders="False" DataTable="[dtData]" DisplayName="Read Range Workbook - Data Worksheet" sap:VirtualizedContainerService.HintSize="721.6,128" sap2010:WorkflowViewState.IdRef="ReadRange_4" SheetName="Data" WorkbookPath="[DataFolderPath+&quot;\Monitoring.xlsx&quot;]" />
     <Assign DisplayName="Assign - Finding next empty row" sap:VirtualizedContainerService.HintSize="721.6,121.6" sap2010:WorkflowViewState.IdRef="Assign_4">
       <Assign.To>
         <OutArgument x:TypeArguments="x:Int32">[NewRow]</OutArgument>
@@ -344,7 +339,7 @@
         <InArgument x:TypeArguments="x:Int32">[dtData.rows.Count +1]</InArgument>
       </Assign.Value>
     </Assign>
-    <ui:WriteRange AddHeaders="False" DataTable="[dtUpdatedInfo]" DisplayName="Write Range Workbook - Updated" sap:VirtualizedContainerService.HintSize="721.6,156" sap2010:WorkflowViewState.IdRef="WriteRange_2" SheetName="Data" StartingCell="[&quot;A&quot;&amp; NewRow]" WorkbookPath="[FolderPath+&quot;\Monitoring.xlsx&quot;]" />
+    <ui:WriteRange AddHeaders="False" DataTable="[dtUpdatedInfo]" DisplayName="Write Range Workbook - Updated" sap:VirtualizedContainerService.HintSize="721.6,156" sap2010:WorkflowViewState.IdRef="WriteRange_2" SheetName="Data" StartingCell="[&quot;A&quot;&amp; NewRow]" WorkbookPath="[DataFolderPath+&quot;\Monitoring.xlsx&quot;]" />
     <ui:LogMessage DisplayName="Log Message - Finishing Monitoring" sap:VirtualizedContainerService.HintSize="721.6,76" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Monitoring is complete&quot;]">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
