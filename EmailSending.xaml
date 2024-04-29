@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="EmailSending" VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="844,758.4" sap2010:WorkflowViewState.IdRef="EmailSending_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:um="clr-namespace:UiPath.Mail;assembly=UiPath.Mail.Activities" xmlns:umab="clr-namespace:UiPath.Mail.Activities.Business;assembly=UiPath.Mail.Activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="EmailSending" VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="844,1444.8" sap2010:WorkflowViewState.IdRef="EmailSending_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:umam="clr-namespace:UiPath.MicrosoftOffice365.Activities.Mail;assembly=UiPath.MicrosoftOffice365.Activities" xmlns:umame="clr-namespace:UiPath.MicrosoftOffice365.Activities.Mail.Enums;assembly=UiPath.MicrosoftOffice365.Activities" xmlns:usau="clr-namespace:UiPath.Shared.Activities.Utils;assembly=UiPath.MicrosoftOffice365.Activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
       <x:String>System.Activities</x:String>
@@ -37,6 +37,14 @@
       <x:String>UiPath.Excel.Activities</x:String>
       <x:String>System.Linq.Expressions</x:String>
       <x:String>System.Reflection</x:String>
+      <x:String>System.Numerics</x:String>
+      <x:String>UiPath.Mail.Activities.Utils</x:String>
+      <x:String>UiPath.Mail.Activities.Business.HtmlEditor</x:String>
+      <x:String>UiPath.MicrosoftOffice365.Activities.Mail.Enums</x:String>
+      <x:String>UiPath.Shared.Activities.Utils</x:String>
+      <x:String>UiPath.Platform.ResourceHandling</x:String>
+      <x:String>UiPath.MicrosoftOffice365.Activities.Mail</x:String>
+      <x:String>UiPath.MicrosoftOffice365.Activities</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -101,23 +109,30 @@
       <AssemblyReference>System.CodeDom</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic.Forms</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic.Core</AssemblyReference>
+      <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
+      <AssemblyReference>UiPath.MicrosoftOffice365.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>System.Linq.Async</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="EmailSending" sap:VirtualizedContainerService.HintSize="540.8,693.6" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="The main idea here is to read all information collected in excel file. After that filtering 1st by today's items and 2nd by discounted items.&#xA;&#xA;The email will report the quantity of items monitoring, the ones that are with discount and show some more details." DisplayName="EmailSending" sap:VirtualizedContainerService.HintSize="496,1380" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="sd:DataTable" Name="dt_Data" />
       <Variable x:TypeArguments="sd:DataTable" Name="dt_TodayInfo" />
       <Variable x:TypeArguments="sd:DataTable" Name="dt_DiscountItems" />
       <Variable x:TypeArguments="x:Int32" Name="ItemsCount" />
       <Variable x:TypeArguments="x:Int32" Name="DiscountItemsCount" />
+      <Variable x:TypeArguments="x:String" Name="EmailContent" />
+      <Variable x:TypeArguments="x:String" Name="DiscountItemsToString" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:ReadRange Range="{x:Null}" AddHeaders="True" DataTable="[dt_Data]" DisplayName="Read Range Workbook - Data Sheet" sap:VirtualizedContainerService.HintSize="478.4,128" sap2010:WorkflowViewState.IdRef="ReadRange_1" SheetName="Data" WorkbookPath="[DataFolderPath+&quot;\Monitoring.xlsx&quot;]" />
-    <ui:FilterDataTable DataTable="[dt_Data]" DisplayName="Filter Data Table - Get today's Items" FilterRowsMode="Keep" sap:VirtualizedContainerService.HintSize="478.4,92.8" sap2010:WorkflowViewState.IdRef="FilterDataTable_1" OutputDataTable="[dt_TodayInfo]" SelectColumnsMode="Remove">
+    <ui:ReadRange Range="{x:Null}" AddHeaders="True" DataTable="[dt_Data]" DisplayName="Read Range Workbook - Data Sheet" sap:VirtualizedContainerService.HintSize="433.6,128" sap2010:WorkflowViewState.IdRef="ReadRange_1" SheetName="Data" WorkbookPath="[DataFolderPath+&quot;\Monitoring.xlsx&quot;]" />
+    <ui:FilterDataTable DataTable="[dt_Data]" DisplayName="Filter Data Table - Get today's Items" FilterRowsMode="Keep" sap:VirtualizedContainerService.HintSize="433.6,92.8" sap2010:WorkflowViewState.IdRef="FilterDataTable_1" OutputDataTable="[dt_TodayInfo]" SelectColumnsMode="Remove">
       <ui:FilterDataTable.Filters>
         <scg:List x:TypeArguments="ui:FilterOperationArgument" Capacity="4">
           <ui:FilterOperationArgument BooleanOperator="And" Operator="EQ">
@@ -142,7 +157,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:FilterDataTable>
-    <ui:FilterDataTable DataTable="[dt_TodayInfo]" DisplayName="Filter Data Table - Discount ones" FilterRowsMode="Keep" sap:VirtualizedContainerService.HintSize="478.4,92.8" sap2010:WorkflowViewState.IdRef="FilterDataTable_2" OutputDataTable="[dt_DiscountItems]" SelectColumnsMode="Remove">
+    <ui:FilterDataTable DataTable="[dt_TodayInfo]" DisplayName="Filter Data Table - Discount ones" FilterRowsMode="Keep" sap:VirtualizedContainerService.HintSize="433.6,92.8" sap2010:WorkflowViewState.IdRef="FilterDataTable_2" OutputDataTable="[dt_DiscountItems]" SelectColumnsMode="Remove">
       <ui:FilterDataTable.Filters>
         <scg:List x:TypeArguments="ui:FilterOperationArgument" Capacity="4">
           <ui:FilterOperationArgument BooleanOperator="And" Operator="CONTAINS">
@@ -167,40 +182,88 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:FilterDataTable>
-    <ui:MultipleAssign DisplayName="Multiple Assign Datatables info" sap:VirtualizedContainerService.HintSize="478.4,188" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
-      <ui:MultipleAssign.AssignOperations>
-        <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
-          <ui:AssignOperation To="{x:Null}" Value="{x:Null}" sap2010:WorkflowViewState.IdRef="AssignOperation_1" />
-          <ui:AssignOperation To="{x:Null}" Value="{x:Null}" sap2010:WorkflowViewState.IdRef="AssignOperation_2" />
-        </scg:List>
-      </ui:MultipleAssign.AssignOperations>
-    </ui:MultipleAssign>
-    <umab:ExchangeApplicationCard ApplicationId="{x:Null}" SharedMailbox="{x:Null}" TenantId="{x:Null}" Account="Please select an account" ConnectionAccountName="Microsoft Outlook 365 #2" ConnectionId="43573cb0-646e-4d18-a2f8-d0388b80dff8" DisplayName="Use Outlook 365" sap:VirtualizedContainerService.HintSize="478.4,103.2" sap2010:WorkflowViewState.IdRef="ExchangeApplicationCard_1" UseConnectionService="True">
-      <umab:ExchangeApplicationCard.Body>
-        <ActivityAction x:TypeArguments="um:IMailQuickHandle">
-          <ActivityAction.Argument>
-            <DelegateInArgument x:TypeArguments="um:IMailQuickHandle" Name="Exchange" />
-          </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="416,102.4" sap2010:WorkflowViewState.IdRef="Sequence_2">
-            <sap:WorkflowViewStateService.ViewState>
-              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-              </scg:Dictionary>
-            </sap:WorkflowViewStateService.ViewState>
-          </Sequence>
-        </ActivityAction>
-      </umab:ExchangeApplicationCard.Body>
-      <umab:ExchangeApplicationCard.EmailAddress>
-        <InArgument x:TypeArguments="x:String">
-          <Literal x:TypeArguments="x:String" Value="" />
-        </InArgument>
-      </umab:ExchangeApplicationCard.EmailAddress>
+    <ui:RemoveDataColumn Column="{x:Null}" ColumnIndex="{x:Null}" ColumnName="Date" DataTable="[dt_DiscountItems]" DisplayName="Remove Data Column - &quot;Date&quot;" sap:VirtualizedContainerService.HintSize="433.6,92.8" sap2010:WorkflowViewState.IdRef="RemoveDataColumn_1">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">False</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-    </umab:ExchangeApplicationCard>
+    </ui:RemoveDataColumn>
+    <ui:OutputDataTable DataTable="[dt_DiscountItems]" DisplayName="Output Data Table - from datatable to string" sap:VirtualizedContainerService.HintSize="433.6,120.8" sap2010:WorkflowViewState.IdRef="OutputDataTable_1" Text="[DiscountItemsToString]">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:OutputDataTable>
+    <ui:MultipleAssign DisplayName="Multiple Assign Datatables info" sap:VirtualizedContainerService.HintSize="433.6,92.8" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+      <ui:MultipleAssign.AssignOperations>
+        <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:Int32">[ItemsCount]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:Int32">[dt_TodayInfo.Rows.Count]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_2">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:Int32">[DiscountItemsCount]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:Int32">[dt_DiscountItems.rows.Count]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+        </scg:List>
+      </ui:MultipleAssign.AssignOperations>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:MultipleAssign>
+    <Assign DisplayName="Assign - Email content" sap:VirtualizedContainerService.HintSize="433.6,123.2" sap2010:WorkflowViewState.IdRef="Assign_1">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[EmailContent]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String" xml:space="preserve">["Good Day" + Environment.NewLine  + "This is the daily Monitoring of Mercado Libre items." + 
+"There is a total of " + ItemsCount.ToString + " being monitored and quantity of items found with discount is/are " + DiscountItemsCount.ToString + Environment.NewLine +
+"Please refer to the following:" + Environment.NewLine +DiscountItemsToString + Environment.NewLine +
+"Any question don't hesitate to contact your IT administrator" + Environment.NewLine + "Regards" + Environment.NewLine + "IT Team"]</InArgument>
+      </Assign.Value>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </Assign>
+    <umam:SendMailConnections ArgumentAttachmentPaths="{x:Null}" AttachmentList="{x:Null}" ConnectionAccountName="{x:Null}" AttachmentInputMode="Existing" AttachmentPaths="{x:Null}" Attachments="{x:Null}" AuthScopesInvalid="False" Bcc="{x:Null}" Body="[EmailContent]" Cc="{x:Null}" ConnectionId="43573cb0-646e-4d18-a2f8-d0388b80dff8" ContinueOnError="{x:Null}" DisplayName="Send Email" sap:VirtualizedContainerService.HintSize="433.6,456" sap2010:WorkflowViewState.IdRef="SendMailConnections_1" Importance="Normal" InputType="HTML" Mailbox="{x:Null}" ReplyTo="{x:Null}" SaveAsDraft="False" SingleAttachment="{x:Null}" Subject="Mercado Libre Items Monitoring" TextBody="{x:Null}" To="[New String(){&quot;erickmireleshdz@hotmail.com&quot;}]" UseConnectionService="True">
+      <umam:SendMailConnections.AttachmentsBackup>
+        <usau:BackupSlot x:TypeArguments="umame:AttachmentInputMode" StoredValue="Existing">
+          <usau:BackupSlot.BackupValues>
+            <scg:Dictionary x:TypeArguments="umame:AttachmentInputMode, scg:List(x:Object)" />
+          </usau:BackupSlot.BackupValues>
+        </usau:BackupSlot>
+      </umam:SendMailConnections.AttachmentsBackup>
+      <umam:SendMailConnections.InputTypeBackup>
+        <usau:BackupSlot x:TypeArguments="umame:BodyInputType" StoredValue="HTML">
+          <usau:BackupSlot.BackupValues>
+            <scg:Dictionary x:TypeArguments="umame:BodyInputType, scg:List(x:Object)" />
+          </usau:BackupSlot.BackupValues>
+        </usau:BackupSlot>
+      </umam:SendMailConnections.InputTypeBackup>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </umam:SendMailConnections>
   </Sequence>
 </Activity>
