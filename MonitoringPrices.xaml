@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="MonitoringPrices" VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="844,3651.2" sap2010:WorkflowViewState.IdRef="MonitoringPrices_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="MonitoringPrices" VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="844,2959.2" sap2010:WorkflowViewState.IdRef="MonitoringPrices_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
       <x:String>System.Activities</x:String>
@@ -44,6 +44,7 @@
       <x:String>System.Numerics</x:String>
       <x:String>UiPath.UIAutomationNext.Contracts</x:String>
       <x:String>UiPath.UIAutomationNext.Models.CV</x:String>
+      <x:String>System.Activities.Runtime.Collections</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -110,9 +111,10 @@
       <AssemblyReference>Microsoft.VisualBasic.Forms</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic.Core</AssemblyReference>
       <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
+      <AssemblyReference>System.Linq.Async</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="MonitoringPrices" sap:VirtualizedContainerService.HintSize="784,3586.4" sap2010:WorkflowViewState.IdRef="Sequence_11">
+  <Sequence DisplayName="MonitoringPrices" sap:VirtualizedContainerService.HintSize="732.8,2894.4" sap2010:WorkflowViewState.IdRef="Sequence_11">
     <Sequence.Variables>
       <Variable x:TypeArguments="sd:DataTable" Name="dtURLs" />
       <Variable x:TypeArguments="x:String" Name="ProductName" />
@@ -129,7 +131,7 @@
         <x:Boolean x:Key="IsPinned">False</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Message - Reading URLs" sap:VirtualizedContainerService.HintSize="721.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Reading the URLs uploaded&quot;]">
+    <ui:LogMessage DisplayName="Log Message - Reading URLs" sap:VirtualizedContainerService.HintSize="670.4,56.8" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Reading the URLs uploaded&quot;]">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -137,28 +139,28 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:LogMessage>
-    <ui:ReadRange Range="{x:Null}" AddHeaders="True" DataTable="[dtURLs]" DisplayName="Read Range Workbook - FolderPath" sap:VirtualizedContainerService.HintSize="721.6,128" sap2010:WorkflowViewState.IdRef="ReadRange_3" SheetName="URL" WorkbookPath="[DataFolderPath+&quot;\Monitoring.xlsx&quot;]" />
-    <ui:BuildDataTable DataTable="[dtUpdatedInfo]" DisplayName="Build Data Table" sap:VirtualizedContainerService.HintSize="721.6,100" sap2010:WorkflowViewState.IdRef="BuildDataTable_3" TableInfo="&lt;NewDataSet&gt;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xA;      &lt;xs:complexType&gt;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xA;            &lt;xs:complexType&gt;&#xA;              &lt;xs:sequence&gt;&#xA;                &lt;xs:element name=&quot;Product_x0020_Name&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xA;                  &lt;xs:simpleType&gt;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xA;                    &lt;/xs:restriction&gt;&#xA;                  &lt;/xs:simpleType&gt;&#xA;                &lt;/xs:element&gt;&#xA;                &lt;xs:element name=&quot;Price&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Discount_x0020_Price&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Discount&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Date&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;              &lt;/xs:sequence&gt;&#xA;            &lt;/xs:complexType&gt;&#xA;          &lt;/xs:element&gt;&#xA;        &lt;/xs:choice&gt;&#xA;      &lt;/xs:complexType&gt;&#xA;    &lt;/xs:element&gt;&#xA;  &lt;/xs:schema&gt;&#xA;&lt;/NewDataSet&gt;" />
-    <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[dtURLs]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="721.6,2602.4" sap2010:WorkflowViewState.IdRef="ForEachRow_2">
+    <ui:ReadRange Range="{x:Null}" AddHeaders="True" DataTable="[dtURLs]" DisplayName="Read Range Workbook - FolderPath" sap:VirtualizedContainerService.HintSize="670.4,120" sap2010:WorkflowViewState.IdRef="ReadRange_3" SheetName="URL" WorkbookPath="[DataFolderPath+&quot;\Monitoring.xlsx&quot;]" />
+    <ui:BuildDataTable DataTable="[dtUpdatedInfo]" DisplayName="Build Data Table" sap:VirtualizedContainerService.HintSize="670.4,92" sap2010:WorkflowViewState.IdRef="BuildDataTable_3" TableInfo="&lt;NewDataSet&gt;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xA;      &lt;xs:complexType&gt;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xA;            &lt;xs:complexType&gt;&#xA;              &lt;xs:sequence&gt;&#xA;                &lt;xs:element name=&quot;Product_x0020_Name&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xA;                  &lt;xs:simpleType&gt;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xA;                    &lt;/xs:restriction&gt;&#xA;                  &lt;/xs:simpleType&gt;&#xA;                &lt;/xs:element&gt;&#xA;                &lt;xs:element name=&quot;Price&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Discount_x0020_Price&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Discount&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Date&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;              &lt;/xs:sequence&gt;&#xA;            &lt;/xs:complexType&gt;&#xA;          &lt;/xs:element&gt;&#xA;        &lt;/xs:choice&gt;&#xA;      &lt;/xs:complexType&gt;&#xA;    &lt;/xs:element&gt;&#xA;  &lt;/xs:schema&gt;&#xA;&lt;/NewDataSet&gt;" />
+    <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[dtURLs]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="670.4,2050.4" sap2010:WorkflowViewState.IdRef="ForEachRow_2">
       <ui:ForEachRow.Body>
         <ActivityAction x:TypeArguments="sd:DataRow">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="sd:DataRow" Name="CurrentRow" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="688,2396.8" sap2010:WorkflowViewState.IdRef="Sequence_15">
+          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="636.8,1852.8" sap2010:WorkflowViewState.IdRef="Sequence_15">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 <x:Boolean x:Key="IsPinned">False</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Browser Edge: Nueva pestaña" sap:VirtualizedContainerService.HintSize="625.6,2310.4" sap2010:WorkflowViewState.IdRef="NApplicationCard_5" InteractionMode="DebuggerApi" ScopeGuid="752f719e-9185-451f-aedf-5116f4434419" Version="V2">
+            <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Browser Edge: Nueva pestaña" sap:VirtualizedContainerService.HintSize="574.4,1766.4" sap2010:WorkflowViewState.IdRef="NApplicationCard_5" InteractionMode="DebuggerApi" ScopeGuid="752f719e-9185-451f-aedf-5116f4434419" Version="V2">
               <uix:NApplicationCard.Body>
                 <ActivityAction x:TypeArguments="x:Object">
                   <ActivityAction.Argument>
                     <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
                   </ActivityAction.Argument>
-                  <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="592,2070.4" sap2010:WorkflowViewState.IdRef="Sequence_12">
+                  <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="540.8,1526.4" sap2010:WorkflowViewState.IdRef="Sequence_12">
                     <Sequence.Variables>
                       <Variable x:TypeArguments="x:String" Name="OriginalPrice" />
                     </Sequence.Variables>
@@ -167,7 +169,7 @@
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <ui:MultipleAssign DisplayName="Multiple Assign - Set Variables to empty values" sap:VirtualizedContainerService.HintSize="529.6,220" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+                    <ui:MultipleAssign DisplayName="Multiple Assign - Set Variables to empty values" sap:VirtualizedContainerService.HintSize="478.4,212" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
                       <ui:MultipleAssign.AssignOperations>
                         <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
                           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
@@ -203,8 +205,8 @@
                         </scg:List>
                       </ui:MultipleAssign.AssignOperations>
                     </ui:MultipleAssign>
-                    <uix:NGoToUrl DisplayName="Go To URL" sap:VirtualizedContainerService.HintSize="529.6,122.4" sap2010:WorkflowViewState.IdRef="NGoToUrl_2" Url="[CurrentRow(&quot;URL&quot;).ToString]" Version="V3" />
-                    <uix:NGetText DisplayName="Get Text 'Product Name'" sap:VirtualizedContainerService.HintSize="529.6,197.6" sap2010:WorkflowViewState.IdRef="NGetText_4" ScopeIdentifier="752f719e-9185-451f-aedf-5116f4434419" TextString="[ProductName]" Version="V3">
+                    <uix:NGoToUrl DisplayName="Go To URL" sap:VirtualizedContainerService.HintSize="478.4,114.4" sap2010:WorkflowViewState.IdRef="NGoToUrl_2" Url="[CurrentRow(&quot;URL&quot;).ToString]" Version="V3" />
+                    <uix:NGetText DisplayName="Get Text 'Product Name'" sap:VirtualizedContainerService.HintSize="478.4,189.6" sap2010:WorkflowViewState.IdRef="NGetText_4" ScopeIdentifier="752f719e-9185-451f-aedf-5116f4434419" TextString="[ProductName]" Version="V3">
                       <uix:NGetText.Target>
                         <uix:TargetAnchorable BrowserURL="https://articulo.mercadolibre.com.mx/MLM-1906954783-tenis-running-en-carretera-hombre-nike-pegasus-38-_JM#reco_item_pos=0&amp;reco_backend=item_decorator&amp;reco_backend_type=function&amp;reco_client=home_items-decorator-legacy&amp;reco_id=bfb47ad2-d322-46c7-ab9a-dfaf3eb769e0&amp;c_id=/home/navigation-recommendations-seed/element&amp;c_uid=638f947d-6a88-4cfb-bacd-99c688a57153&amp;da_id=navigation&amp;da_position=0&amp;id_origin=/home/dynamic_access&amp;da_sort_algorithm=ranker" DesignTimeRectangle="1236, 592, 363, 65" DesignTimeScaleFactor="1.25" ElementType="Text" FullSelectorArgument="&lt;webctrl tag='H1' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='H1' type='' class='ui-pdp-title' /&gt;" Guid="c08fac7a-7de9-4675-ac90-9faad3fa77cd" InformativeScreenshot="8ef87fc607814ff85a4ade5bdf4119e3.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Tenis Running En Carretera Hombre Nike Pegasus 38 | Envío gratis' /&gt;" SearchSteps="FuzzySelector" Version="V3" Visibility="Interactive" />
                       </uix:NGetText.Target>
@@ -215,56 +217,91 @@
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
                     </uix:NGetText>
-                    <uix:NGetText DisplayName="Get Text 'Percent Discount'" sap:VirtualizedContainerService.HintSize="529.6,197.6" sap2010:WorkflowViewState.IdRef="NGetText_5" ScopeIdentifier="752f719e-9185-451f-aedf-5116f4434419" TextString="[Discount]" Version="V3">
+                    <uix:NGetText DisplayName="Get Text 'Original Price'" sap:VirtualizedContainerService.HintSize="478.4,189.6" sap2010:WorkflowViewState.IdRef="NGetText_9" ScopeIdentifier="752f719e-9185-451f-aedf-5116f4434419" TextString="[OriginalPrice]" Version="V3">
                       <uix:NGetText.Target>
-                        <uix:TargetAnchorable BrowserURL="https://articulo.mercadolibre.com.mx/MLM-1906954783-tenis-running-en-carretera-hombre-nike-pegasus-38-_JM#reco_item_pos=0&amp;reco_backend=item_decorator&amp;reco_backend_type=function&amp;reco_client=home_items-decorator-legacy&amp;reco_id=bfb47ad2-d322-46c7-ab9a-dfaf3eb769e0&amp;c_id=/home/navigation-recommendations-seed/element&amp;c_uid=638f947d-6a88-4cfb-bacd-99c688a57153&amp;da_id=navigation&amp;da_position=0&amp;id_origin=/home/dynamic_access&amp;da_sort_algorithm=ranker" CvTextArea="1416, 747, 95, 20" CvType="AnyWordGroup" DesignTimeRectangle="1418, 742, 91, 31" DesignTimeScaleFactor="1.25" ElementType="Text" FullSelectorArgument="&lt;webctrl class='andes-money-amount__discount' parentid='price' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl class='andes-money-amount__discount' parentid='price' tag='SPAN' type='' /&gt;" Guid="4722e9ba-0167-4666-9668-099831b09d40" InformativeScreenshot="ae86346665b99ab45b9456e878b6603c.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Tenis Running En Carretera Hombre Nike Pegasus 38 | Envío gratis' /&gt;" SearchSteps="FuzzySelector, CV" Version="V3" Visibility="Interactive">
+                        <uix:TargetAnchorable BrowserURL="https://articulo.mercadolibre.com.mx/MLM-1906954783-tenis-running-en-carretera-hombre-nike-pegasus-38-_JM#reco_item_pos=0&amp;reco_backend=item_decorator&amp;reco_backend_type=function&amp;reco_client=home_items-decorator-legacy&amp;reco_id=bfb47ad2-d322-46c7-ab9a-dfaf3eb769e0&amp;c_id=/home/navigation-recommendations-seed/element&amp;c_uid=638f947d-6a88-4cfb-bacd-99c688a57153&amp;da_id=navigation&amp;da_position=0&amp;id_origin=/home/dynamic_access&amp;da_sort_algorithm=ranker" CvTextArea="1234, 711, 67, 20" CvType="AnyWordGroup" DesignTimeRectangle="1251, 719, 49, 20" DesignTimeScaleFactor="1.25" ElementType="Text" FullSelectorArgument="&lt;webctrl class='andes-money-amount__fraction' parentid='*' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl class='andes-money-amount__fraction' parentid='*' tag='SPAN' type='' /&gt;" Guid="c09c6f1b-de12-4901-bb8a-38c3a38fd62f" ImageBase64="" InformativeScreenshot="e0eeb273775995fcadfac7c00bcedfdc.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Tenis Running En Carretera Hombre Nike Pegasus 38 | Envío gratis' /&gt;" SearchSteps="Selector" Version="V3" Visibility="Interactive">
                           <uix:TargetAnchorable.Anchors>
                             <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
-                              <uix:Target DesignTimeRectangle="1236, 592, 363, 65" ElementType="Text" FullSelectorArgument="&lt;webctrl tag='H1' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='H1' type='' class='ui-pdp-title' aaname='*' /&gt;" ImageBase64="" SearchSteps="FuzzySelector" />
+                              <uix:Target DesignTimeRectangle="1236, 599, 363, 65" ElementType="Text" FullSelectorArgument="&lt;webctrl tag='H1' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='H1' type='' class='ui-pdp-title' aaname='*' check:innerText='Tenis Running En Carretera Hombre Nike Pegasus 38' /&gt;" SearchSteps="Selector" />
                             </scg:List>
                           </uix:TargetAnchorable.Anchors>
                         </uix:TargetAnchorable>
                       </uix:NGetText.Target>
+                    </uix:NGetText>
+                    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="478.4,349.6" sap2010:WorkflowViewState.IdRef="TryCatch_2">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                           <x:Boolean x:Key="IsPinned">False</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                    </uix:NGetText>
-                    <If Condition="[Discount.Contains(&quot;OFF&quot;)]" sap:VirtualizedContainerService.HintSize="529.6,1032" sap2010:WorkflowViewState.IdRef="If_2">
+                      <TryCatch.Try>
+                        <uix:NGetText DisplayName="Get Text 'Discount'" sap:VirtualizedContainerService.HintSize="333.6,157.6" sap2010:WorkflowViewState.IdRef="NGetText_10" ScopeIdentifier="752f719e-9185-451f-aedf-5116f4434419" TextString="[Discount]" Timeout="5" Version="V3">
+                          <uix:NGetText.Target>
+                            <uix:TargetAnchorable BrowserURL="https://articulo.mercadolibre.com.mx/MLM-1906954783-tenis-running-en-carretera-hombre-nike-pegasus-38-_JM#reco_item_pos=0&amp;reco_backend=item_decorator&amp;reco_backend_type=function&amp;reco_client=home_items-decorator-legacy&amp;reco_id=bfb47ad2-d322-46c7-ab9a-dfaf3eb769e0&amp;c_id=/home/navigation-recommendations-seed/element&amp;c_uid=638f947d-6a88-4cfb-bacd-99c688a57153&amp;da_id=navigation&amp;da_position=0&amp;id_origin=/home/dynamic_access&amp;da_sort_algorithm=ranker" CvTextArea="1405, 747, 94, 20" CvType="AnyWordGroup" DesignTimeRectangle="1407, 742, 90, 31" DesignTimeScaleFactor="1.25" ElementType="Text" FullSelectorArgument="&lt;webctrl class='andes-money-amount__discount' parentid='*' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl class='andes-money-amount__discount' parentid='*' tag='SPAN' type='' /&gt;" Guid="757b88a3-cfcb-4d9f-a263-815c89e1e98a" ImageBase64="" InformativeScreenshot="1749b7ed3622afb15e0976d407d85857.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Tenis Running En Carretera Hombre Nike Pegasus 38 | Envío gratis' /&gt;" SearchSteps="FuzzySelector" Version="V3" Visibility="Interactive">
+                              <uix:TargetAnchorable.Anchors>
+                                <scg:List x:TypeArguments="uix:ITarget" Capacity="2">
+                                  <uix:Target CvTextArea="1269, 739, 106, 41" CvTextArgument="1,959" CvType="Text" DesignTimeRectangle="1270, 734, 102, 45" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='1,959' class='andes-money-amount__fraction' parentid='price' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='1,959' class='andes-money-amount__fraction' parentid='*' tag='SPAN' type='' check:innerText='1,959' /&gt;" SearchSteps="FuzzySelector" />
+                                  <uix:Target DesignTimeRectangle="1236, 592, 363, 65" ElementType="Text" FullSelectorArgument="&lt;webctrl tag='H1' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='H1' type='' class='ui-pdp-title' aaname='*' /&gt;" SearchSteps="FuzzySelector" />
+                                </scg:List>
+                              </uix:TargetAnchorable.Anchors>
+                            </uix:TargetAnchorable>
+                          </uix:NGetText.Target>
+                        </uix:NGetText>
+                      </TryCatch.Try>
+                      <TryCatch.Catches>
+                        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="440,153.6" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <ActivityAction x:TypeArguments="s:Exception">
+                            <ActivityAction.Argument>
+                              <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                            </ActivityAction.Argument>
+                            <Assign DisplayName="Assign - Empty value to Discount Variable" sap:VirtualizedContainerService.HintSize="433.6,82.4" sap2010:WorkflowViewState.IdRef="Assign_5">
+                              <Assign.To>
+                                <OutArgument x:TypeArguments="x:String">[Discount]</OutArgument>
+                              </Assign.To>
+                              <Assign.Value>
+                                <InArgument x:TypeArguments="x:String">
+                                  <Literal x:TypeArguments="x:String" Value="" />
+                                </InArgument>
+                              </Assign.Value>
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                            </Assign>
+                          </ActivityAction>
+                        </Catch>
+                      </TryCatch.Catches>
+                    </TryCatch>
+                    <If Condition="[Discount &lt;&gt; &quot;&quot;]" sap:VirtualizedContainerService.HintSize="478.4,56.8" sap2010:WorkflowViewState.IdRef="If_3">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                           <x:Boolean x:Key="IsPinned">False</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
                       <If.Then>
-                        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,464.8" sap2010:WorkflowViewState.IdRef="Sequence_13">
+                        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,267.2" sap2010:WorkflowViewState.IdRef="Sequence_18">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
-                          <uix:NGetText DisplayName="Get Text 'Discount Price'" sap:VirtualizedContainerService.HintSize="353.6,197.6" sap2010:WorkflowViewState.IdRef="NGetText_6" ScopeIdentifier="752f719e-9185-451f-aedf-5116f4434419" TextString="[DiscountPrice]" Version="V3">
+                          <uix:NGetText DisplayName="Get Text 'Tenis Running'" sap:VirtualizedContainerService.HintSize="353.6,180.8" sap2010:WorkflowViewState.IdRef="NGetText_11" ScopeIdentifier="752f719e-9185-451f-aedf-5116f4434419" TextString="[DiscountPrice]" Version="V3">
                             <uix:NGetText.Target>
-                              <uix:TargetAnchorable BrowserURL="https://articulo.mercadolibre.com.mx/MLM-1906954783-tenis-running-en-carretera-hombre-nike-pegasus-38-_JM#reco_item_pos=0&amp;reco_backend=item_decorator&amp;reco_backend_type=function&amp;reco_client=home_items-decorator-legacy&amp;reco_id=bfb47ad2-d322-46c7-ab9a-dfaf3eb769e0&amp;c_id=/home/navigation-recommendations-seed/element&amp;c_uid=638f947d-6a88-4cfb-bacd-99c688a57153&amp;da_id=navigation&amp;da_position=0&amp;id_origin=/home/dynamic_access&amp;da_sort_algorithm=ranker" CvTextArea="1267, 739, 145, 41" CvType="AnyWordGroup" DesignTimeRectangle="836, 685, 137, 45" DesignTimeScaleFactor="1.25" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='2,239' class='andes-money-amount__fraction' parentid='price' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl class='andes-money-amount__fraction' parentid='price' tag='SPAN' type='' /&gt;" Guid="978fae0b-91df-4b7c-af06-82c5643c5810" ImageBase64="" InformativeScreenshot="b7fe3a52fe5e2c3677600d50c030754f.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='*' /&gt;" SearchSteps="FuzzySelector" Version="V3" Visibility="Interactive">
-                                <uix:TargetAnchorable.Anchors>
-                                  <scg:List x:TypeArguments="uix:ITarget" Capacity="2">
-                                    <uix:Target CvTextArea="1416, 747, 95, 20" CvTextArgument="20% OFF" CvType="Text" DesignTimeRectangle="981, 693, 77, 31" ElementType="Text" FullSelectorArgument="&lt;webctrl class='andes-money-amount__discount' parentid='price' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl class='andes-money-amount__discount' parentid='price' tag='SPAN' type='' aaname='*' /&gt;" ImageBase64="" SearchSteps="FuzzySelector, CV" />
-                                    <uix:Target DesignTimeRectangle="802, 467, 426, 97" ElementType="Text" FullSelectorArgument="&lt;webctrl tag='H1' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='H1' type='' class='ui-pdp-title' aaname='*' /&gt;" ImageBase64="" SearchSteps="FuzzySelector" />
-                                  </scg:List>
-                                </uix:TargetAnchorable.Anchors>
-                              </uix:TargetAnchorable>
-                            </uix:NGetText.Target>
-                          </uix:NGetText>
-                          <uix:NGetText DisplayName="Get Text 'Original Price'" sap:VirtualizedContainerService.HintSize="353.6,180.8" sap2010:WorkflowViewState.IdRef="NGetText_7" ScopeIdentifier="752f719e-9185-451f-aedf-5116f4434419" TextString="[OriginalPrice]" Version="V3">
-                            <uix:NGetText.Target>
-                              <uix:TargetAnchorable BrowserURL="https://www.mercadolibre.com.mx/samsung-galaxy-s24-ultra-5g-dual-sim-512-gb-negro-titanio-12-gb-ram/p/MLM29893910?pdp_filters=category:MLM1055#searchVariation=MLM29893910&amp;position=2&amp;search_layout=stack&amp;type=product&amp;tracking_id=90f07aed-7b9d-415f-9c79-67ccc12c6ebf" CvTextArea="801, 610, 81, 20" CvType="AnyWordGroup" DesignTimeRectangle="818, 609, 63, 20" DesignTimeScaleFactor="1.25" ElementType="Text" FullSelectorArgument="&lt;webctrl class='andes-money-amount__fraction' parentid='ui-pdp-main-container' tag='SPAN' /&gt;" FuzzyAccuracy="0.8" FuzzySelectorArgument="&lt;webctrl class='andes-money-amount__fraction' parentid='ui-pdp-main-container' tag='SPAN' type='' /&gt;" Guid="7468946f-a740-46f5-8825-a6288ab1f431" ImageBase64="" InformativeScreenshot="71b1397d25213e79aa336c1f527a4b85.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Samsung Galaxy S24 Ultra 5G Dual SIM 512 GB negro titanio 12 GB RAM | Meses sin interés' /&gt;" SearchSteps="FuzzySelector" Version="V3" Visibility="Interactive">
+                              <uix:TargetAnchorable BrowserURL="https://articulo.mercadolibre.com.mx/MLM-1906954783-tenis-running-en-carretera-hombre-nike-pegasus-38-_JM#reco_item_pos=0&amp;reco_backend=item_decorator&amp;reco_backend_type=function&amp;reco_client=home_items-decorator-legacy&amp;reco_id=bfb47ad2-d322-46c7-ab9a-dfaf3eb769e0&amp;c_id=/home/navigation-recommendations-seed/element&amp;c_uid=638f947d-6a88-4cfb-bacd-99c688a57153&amp;da_id=navigation&amp;da_position=0&amp;id_origin=/home/dynamic_access&amp;da_sort_algorithm=ranker" CvTextArea="1269, 739, 106, 41" CvType="AnyWordGroup" DesignTimeRectangle="1270, 734, 102, 45" DesignTimeScaleFactor="1.25" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='1,959' class='andes-money-amount__fraction' parentid='price' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl class='andes-money-amount__fraction' parentid='*' tag='SPAN' type='' /&gt;" Guid="8eb17256-d531-4100-82b1-ffaecf05f768" ImageBase64="" InformativeScreenshot="64563d3a4b07c708ed95625d8dc7d7a9.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Tenis Running En Carretera Hombre Nike Pegasus 38 | Envío gratis' /&gt;" SearchSteps="FuzzySelector" Version="V3" Visibility="Interactive">
                                 <uix:TargetAnchorable.Anchors>
                                   <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
-                                    <uix:Target DesignTimeRectangle="802, 414, 426, 97" ElementType="Text" FullSelectorArgument="&lt;webctrl tag='H1' /&gt;" FuzzyAccuracy="0.84" FuzzySelectorArgument="&lt;webctrl tag='H1' type='' class='ui-pdp-title' aaname='*' /&gt;" SearchSteps="FuzzySelector" />
-                                    <uix:Target CvTextArea="835, 637, 116, 40" CvTextArgument="21,318" CvType="Text" DesignTimeRectangle="836, 632, 114, 45" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='21,318' class='andes-money-amount__fraction' parentid='ui-pdp-main-container' tag='SPAN' /&gt;" FuzzyAccuracy="0.86" FuzzySelectorArgument="&lt;webctrl aaname='*' class='andes-money-amount__fraction' parentid='ui-pdp-main-container' tag='SPAN' type='' /&gt;" SearchSteps="FuzzySelector" />
+                                    <uix:Target DesignTimeRectangle="1236, 592, 363, 65" ElementType="Text" FullSelectorArgument="&lt;webctrl tag='H1' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='H1' type='' class='ui-pdp-title' aaname='*' /&gt;" SearchSteps="FuzzySelector" />
+                                    <uix:Target CvTextArea="1234, 711, 67, 20" CvTextArgument="$-2,799" CvType="Text" DesignTimeRectangle="1251, 712, 49, 20" ElementType="Text" FullSelectorArgument="&lt;webctrl class='andes-money-amount__fraction' parentid='price' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl class='andes-money-amount__fraction' parentid='price' tag='SPAN' type='' aaname='*' /&gt;" SearchSteps="FuzzySelector, CV" />
                                   </scg:List>
                                 </uix:TargetAnchorable.Anchors>
                               </uix:TargetAnchorable>
@@ -273,38 +310,139 @@
                         </Sequence>
                       </If.Then>
                       <If.Else>
-                        <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="496,388.8" sap2010:WorkflowViewState.IdRef="Sequence_14">
+                        <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,102.4" sap2010:WorkflowViewState.IdRef="Sequence_19">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
-                          <Assign DisplayName="Assign -Discount Variable" sap:VirtualizedContainerService.HintSize="433.6,121.6" sap2010:WorkflowViewState.IdRef="Assign_3">
-                            <Assign.To>
-                              <OutArgument x:TypeArguments="x:String">[Discount]</OutArgument>
-                            </Assign.To>
-                            <Assign.Value>
-                              <InArgument x:TypeArguments="x:String">
-                                <Literal x:TypeArguments="x:String" Value="" />
-                              </InArgument>
-                            </Assign.Value>
-                          </Assign>
-                          <uix:NGetText DisplayName="Get Text '4.8Calificación 5'" sap:VirtualizedContainerService.HintSize="433.6,180.8" sap2010:WorkflowViewState.IdRef="NGetText_8" ScopeIdentifier="752f719e-9185-451f-aedf-5116f4434419" TextString="[OriginalPrice]" Version="V3">
+                        </Sequence>
+                      </If.Else>
+                    </If>
+                    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="478.4,56.8" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+                      <ui:CommentOut.Body>
+                        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="416,162.4" sap2010:WorkflowViewState.IdRef="Sequence_16">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <uix:NGetText DisplayName="Get Text 'Percent Discount'" sap:VirtualizedContainerService.HintSize="353.6,76" sap2010:WorkflowViewState.IdRef="NGetText_5" ScopeIdentifier="752f719e-9185-451f-aedf-5116f4434419" TextString="[Discount]" Version="V3">
                             <uix:NGetText.Target>
-                              <uix:TargetAnchorable BrowserURL="https://articulo.mercadolibre.com.mx/MLM-1906954783-tenis-running-en-carretera-hombre-nike-pegasus-38-_JM#reco_item_pos=0&amp;reco_backend=item_decorator&amp;reco_backend_type=function&amp;reco_client=home_items-decorator-legacy&amp;reco_id=bfb47ad2-d322-46c7-ab9a-dfaf3eb769e0&amp;c_id=/home/navigation-recommendations-seed/element&amp;c_uid=638f947d-6a88-4cfb-bacd-99c688a57153&amp;da_id=navigation&amp;da_position=0&amp;id_origin=/home/dynamic_access&amp;da_sort_algorithm=ranker" CvTextArea="1267, 739, 145, 41" CvType="AnyWordGroup" DesignTimeRectangle="1270, 734, 113, 45" DesignTimeScaleFactor="1.25" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='2,239' class='andes-money-amount__fraction' parentid='price' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl class='andes-money-amount__fraction' parentid='price' tag='SPAN' type='' /&gt;" Guid="cfd2ecd3-a286-4a2b-a6d7-27808bc75413" InformativeScreenshot="f9bc54c643554225fd27d29fa18271ca.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Tenis Running En Carretera Hombre Nike Pegasus 38 | Envío gratis' /&gt;" SearchSteps="FuzzySelector, CV" Version="V3" Visibility="Interactive">
+                              <uix:TargetAnchorable BrowserURL="https://articulo.mercadolibre.com.mx/MLM-1906954783-tenis-running-en-carretera-hombre-nike-pegasus-38-_JM#reco_item_pos=0&amp;reco_backend=item_decorator&amp;reco_backend_type=function&amp;reco_client=home_items-decorator-legacy&amp;reco_id=bfb47ad2-d322-46c7-ab9a-dfaf3eb769e0&amp;c_id=/home/navigation-recommendations-seed/element&amp;c_uid=638f947d-6a88-4cfb-bacd-99c688a57153&amp;da_id=navigation&amp;da_position=0&amp;id_origin=/home/dynamic_access&amp;da_sort_algorithm=ranker" CvTextArea="1416, 747, 95, 20" CvType="AnyWordGroup" DesignTimeRectangle="836, 664, 124, 45" DesignTimeScaleFactor="1.25" ElementType="Text" FullSelectorArgument="&lt;webctrl class='andes-money-amount__discount' parentid='price' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl class='andes-money-amount__discount' parentid='price' tag='SPAN' type='' /&gt;" Guid="4722e9ba-0167-4666-9668-099831b09d40" ImageBase64="" InformativeScreenshot="fb850154b37c44897e95dc0cff585bf6.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Tenis Running En Carretera Hombre Nike Pegasus 38 | Envío gratis' /&gt;" SearchSteps="FuzzySelector" Version="V3" Visibility="Interactive">
                                 <uix:TargetAnchorable.Anchors>
-                                  <scg:List x:TypeArguments="uix:ITarget" Capacity="2">
-                                    <uix:Target DesignTimeRectangle="1236, 667, 176, 24" ElementType="Text" FullSelectorArgument="&lt;webctrl parentid='header' tag='A' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='header' tag='A' type='' class='ui-pdp-review__label ui-pdp-review__label--link' aaname='*' /&gt;" SearchSteps="FuzzySelector" />
-                                    <uix:Target DesignTimeRectangle="1236, 592, 363, 65" ElementType="Text" FullSelectorArgument="&lt;webctrl tag='H1' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='H1' type='' class='ui-pdp-title' aaname='*' /&gt;" SearchSteps="FuzzySelector" />
+                                  <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                    <uix:Target DesignTimeRectangle="802, 473, 426, 97" ElementType="Text" FullSelectorArgument="&lt;webctrl tag='H1' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='H1' type='' class='ui-pdp-title' aaname='*' /&gt;" ImageBase64="" SearchSteps="FuzzySelector" />
                                   </scg:List>
                                 </uix:TargetAnchorable.Anchors>
                               </uix:TargetAnchorable>
                             </uix:NGetText.Target>
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
                           </uix:NGetText>
                         </Sequence>
-                      </If.Else>
-                    </If>
-                    <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{ProductName, OriginalPrice, DiscountPrice, Discount, Today.ToString}]" DataTable="[dtUpdatedInfo]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="529.6,212.8" sap2010:WorkflowViewState.IdRef="AddDataRow_2" />
+                      </ui:CommentOut.Body>
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                    </ui:CommentOut>
+                    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="478.4,56.8" sap2010:WorkflowViewState.IdRef="CommentOut_2">
+                      <ui:CommentOut.Body>
+                        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="416,162.4" sap2010:WorkflowViewState.IdRef="Sequence_17">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <If Condition="[Discount.Contains(&quot;OFF&quot;)]" sap:VirtualizedContainerService.HintSize="353.6,76" sap2010:WorkflowViewState.IdRef="If_2">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <If.Then>
+                              <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,456.8" sap2010:WorkflowViewState.IdRef="Sequence_13">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <uix:NGetText DisplayName="Get Text 'Discount Price'" sap:VirtualizedContainerService.HintSize="353.6,189.6" sap2010:WorkflowViewState.IdRef="NGetText_6" ScopeIdentifier="752f719e-9185-451f-aedf-5116f4434419" TextString="[DiscountPrice]" Version="V3">
+                                  <uix:NGetText.Target>
+                                    <uix:TargetAnchorable BrowserURL="https://articulo.mercadolibre.com.mx/MLM-1906954783-tenis-running-en-carretera-hombre-nike-pegasus-38-_JM#reco_item_pos=0&amp;reco_backend=item_decorator&amp;reco_backend_type=function&amp;reco_client=home_items-decorator-legacy&amp;reco_id=bfb47ad2-d322-46c7-ab9a-dfaf3eb769e0&amp;c_id=/home/navigation-recommendations-seed/element&amp;c_uid=638f947d-6a88-4cfb-bacd-99c688a57153&amp;da_id=navigation&amp;da_position=0&amp;id_origin=/home/dynamic_access&amp;da_sort_algorithm=ranker" CvTextArea="1267, 739, 145, 41" CvType="AnyWordGroup" DesignTimeRectangle="836, 685, 137, 45" DesignTimeScaleFactor="1.25" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='2,239' class='andes-money-amount__fraction' parentid='price' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl class='andes-money-amount__fraction' parentid='price' tag='SPAN' type='' /&gt;" Guid="978fae0b-91df-4b7c-af06-82c5643c5810" ImageBase64="" InformativeScreenshot="b7fe3a52fe5e2c3677600d50c030754f.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='*' /&gt;" SearchSteps="FuzzySelector" Version="V3" Visibility="Interactive">
+                                      <uix:TargetAnchorable.Anchors>
+                                        <scg:List x:TypeArguments="uix:ITarget" Capacity="2">
+                                          <uix:Target CvTextArea="1416, 747, 95, 20" CvTextArgument="20% OFF" CvType="Text" DesignTimeRectangle="981, 693, 77, 31" ElementType="Text" FullSelectorArgument="&lt;webctrl class='andes-money-amount__discount' parentid='price' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl class='andes-money-amount__discount' parentid='price' tag='SPAN' type='' aaname='*' /&gt;" ImageBase64="" SearchSteps="FuzzySelector, CV" />
+                                          <uix:Target DesignTimeRectangle="802, 467, 426, 97" ElementType="Text" FullSelectorArgument="&lt;webctrl tag='H1' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='H1' type='' class='ui-pdp-title' aaname='*' /&gt;" ImageBase64="" SearchSteps="FuzzySelector" />
+                                        </scg:List>
+                                      </uix:TargetAnchorable.Anchors>
+                                    </uix:TargetAnchorable>
+                                  </uix:NGetText.Target>
+                                </uix:NGetText>
+                                <uix:NGetText DisplayName="Get Text 'Original Price'" sap:VirtualizedContainerService.HintSize="353.6,180.8" sap2010:WorkflowViewState.IdRef="NGetText_7" ScopeIdentifier="752f719e-9185-451f-aedf-5116f4434419" TextString="[OriginalPrice]" Version="V3">
+                                  <uix:NGetText.Target>
+                                    <uix:TargetAnchorable BrowserURL="https://www.mercadolibre.com.mx/samsung-galaxy-s24-ultra-5g-dual-sim-512-gb-negro-titanio-12-gb-ram/p/MLM29893910?pdp_filters=category:MLM1055#searchVariation=MLM29893910&amp;position=2&amp;search_layout=stack&amp;type=product&amp;tracking_id=90f07aed-7b9d-415f-9c79-67ccc12c6ebf" CvTextArea="801, 610, 81, 20" CvType="AnyWordGroup" DesignTimeRectangle="818, 609, 63, 20" DesignTimeScaleFactor="1.25" ElementType="Text" FullSelectorArgument="&lt;webctrl class='andes-money-amount__fraction' parentid='ui-pdp-main-container' tag='SPAN' /&gt;" FuzzyAccuracy="0.8" FuzzySelectorArgument="&lt;webctrl class='andes-money-amount__fraction' parentid='ui-pdp-main-container' tag='SPAN' type='' /&gt;" Guid="7468946f-a740-46f5-8825-a6288ab1f431" ImageBase64="" InformativeScreenshot="71b1397d25213e79aa336c1f527a4b85.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Samsung Galaxy S24 Ultra 5G Dual SIM 512 GB negro titanio 12 GB RAM | Meses sin interés' /&gt;" SearchSteps="FuzzySelector" Version="V3" Visibility="Interactive">
+                                      <uix:TargetAnchorable.Anchors>
+                                        <scg:List x:TypeArguments="uix:ITarget" Capacity="2">
+                                          <uix:Target DesignTimeRectangle="802, 414, 426, 97" ElementType="Text" FullSelectorArgument="&lt;webctrl tag='H1' /&gt;" FuzzyAccuracy="0.84" FuzzySelectorArgument="&lt;webctrl tag='H1' type='' class='ui-pdp-title' aaname='*' /&gt;" SearchSteps="FuzzySelector" />
+                                          <uix:Target CvTextArea="835, 637, 116, 40" CvTextArgument="21,318" CvType="Text" DesignTimeRectangle="836, 632, 114, 45" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='21,318' class='andes-money-amount__fraction' parentid='ui-pdp-main-container' tag='SPAN' /&gt;" FuzzyAccuracy="0.86" FuzzySelectorArgument="&lt;webctrl aaname='*' class='andes-money-amount__fraction' parentid='ui-pdp-main-container' tag='SPAN' type='' /&gt;" SearchSteps="FuzzySelector" />
+                                        </scg:List>
+                                      </uix:TargetAnchorable.Anchors>
+                                    </uix:TargetAnchorable>
+                                  </uix:NGetText.Target>
+                                </uix:NGetText>
+                              </Sequence>
+                            </If.Then>
+                            <If.Else>
+                              <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="496,380.8" sap2010:WorkflowViewState.IdRef="Sequence_14">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <Assign DisplayName="Assign -Discount Variable" sap:VirtualizedContainerService.HintSize="433.6,113.6" sap2010:WorkflowViewState.IdRef="Assign_3">
+                                  <Assign.To>
+                                    <OutArgument x:TypeArguments="x:String">[Discount]</OutArgument>
+                                  </Assign.To>
+                                  <Assign.Value>
+                                    <InArgument x:TypeArguments="x:String">
+                                      <Literal x:TypeArguments="x:String" Value="" />
+                                    </InArgument>
+                                  </Assign.Value>
+                                </Assign>
+                                <uix:NGetText DisplayName="Get Text '4.8Calificación 5'" sap:VirtualizedContainerService.HintSize="433.6,180.8" sap2010:WorkflowViewState.IdRef="NGetText_8" ScopeIdentifier="752f719e-9185-451f-aedf-5116f4434419" TextString="[OriginalPrice]" Version="V3">
+                                  <uix:NGetText.Target>
+                                    <uix:TargetAnchorable BrowserURL="https://articulo.mercadolibre.com.mx/MLM-1906954783-tenis-running-en-carretera-hombre-nike-pegasus-38-_JM#reco_item_pos=0&amp;reco_backend=item_decorator&amp;reco_backend_type=function&amp;reco_client=home_items-decorator-legacy&amp;reco_id=bfb47ad2-d322-46c7-ab9a-dfaf3eb769e0&amp;c_id=/home/navigation-recommendations-seed/element&amp;c_uid=638f947d-6a88-4cfb-bacd-99c688a57153&amp;da_id=navigation&amp;da_position=0&amp;id_origin=/home/dynamic_access&amp;da_sort_algorithm=ranker" CvTextArea="1267, 739, 145, 41" CvType="AnyWordGroup" DesignTimeRectangle="1270, 734, 113, 45" DesignTimeScaleFactor="1.25" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='2,239' class='andes-money-amount__fraction' parentid='price' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl class='andes-money-amount__fraction' parentid='price' tag='SPAN' type='' /&gt;" Guid="cfd2ecd3-a286-4a2b-a6d7-27808bc75413" InformativeScreenshot="f9bc54c643554225fd27d29fa18271ca.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Tenis Running En Carretera Hombre Nike Pegasus 38 | Envío gratis' /&gt;" SearchSteps="FuzzySelector, CV" Version="V3" Visibility="Interactive">
+                                      <uix:TargetAnchorable.Anchors>
+                                        <scg:List x:TypeArguments="uix:ITarget" Capacity="2">
+                                          <uix:Target DesignTimeRectangle="1236, 667, 176, 24" ElementType="Text" FullSelectorArgument="&lt;webctrl parentid='header' tag='A' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='header' tag='A' type='' class='ui-pdp-review__label ui-pdp-review__label--link' aaname='*' /&gt;" SearchSteps="FuzzySelector" />
+                                          <uix:Target DesignTimeRectangle="1236, 592, 363, 65" ElementType="Text" FullSelectorArgument="&lt;webctrl tag='H1' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='H1' type='' class='ui-pdp-title' aaname='*' /&gt;" SearchSteps="FuzzySelector" />
+                                        </scg:List>
+                                      </uix:TargetAnchorable.Anchors>
+                                    </uix:TargetAnchorable>
+                                  </uix:NGetText.Target>
+                                </uix:NGetText>
+                              </Sequence>
+                            </If.Else>
+                          </If>
+                        </Sequence>
+                      </ui:CommentOut.Body>
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                    </ui:CommentOut>
+                    <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{ProductName, OriginalPrice, DiscountPrice, Discount, Today.ToString}]" DataTable="[dtUpdatedInfo]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="478.4,212.8" sap2010:WorkflowViewState.IdRef="AddDataRow_2" />
                   </Sequence>
                 </ActivityAction>
               </uix:NApplicationCard.Body>
@@ -322,7 +460,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:ForEachRow>
-    <ui:LogMessage DisplayName="Log Message - Excel Data Sheet" sap:VirtualizedContainerService.HintSize="721.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Reading information of Data Sheet&quot;]">
+    <ui:LogMessage DisplayName="Log Message - Excel Data Sheet" sap:VirtualizedContainerService.HintSize="670.4,56.8" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Reading information of Data Sheet&quot;]">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -330,8 +468,8 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:LogMessage>
-    <ui:ReadRange Range="{x:Null}" AddHeaders="False" DataTable="[dtData]" DisplayName="Read Range Workbook - Data Worksheet" sap:VirtualizedContainerService.HintSize="721.6,128" sap2010:WorkflowViewState.IdRef="ReadRange_4" SheetName="Data" WorkbookPath="[DataFolderPath+&quot;\Monitoring.xlsx&quot;]" />
-    <Assign DisplayName="Assign - Finding next empty row" sap:VirtualizedContainerService.HintSize="721.6,121.6" sap2010:WorkflowViewState.IdRef="Assign_4">
+    <ui:ReadRange Range="{x:Null}" AddHeaders="False" DataTable="[dtData]" DisplayName="Read Range Workbook - Data Worksheet" sap:VirtualizedContainerService.HintSize="670.4,120" sap2010:WorkflowViewState.IdRef="ReadRange_4" SheetName="Data" WorkbookPath="[DataFolderPath+&quot;\Monitoring.xlsx&quot;]" />
+    <Assign DisplayName="Assign - Finding next empty row" sap:VirtualizedContainerService.HintSize="670.4,113.6" sap2010:WorkflowViewState.IdRef="Assign_4">
       <Assign.To>
         <OutArgument x:TypeArguments="x:Int32">[NewRow]</OutArgument>
       </Assign.To>
@@ -339,8 +477,8 @@
         <InArgument x:TypeArguments="x:Int32">[dtData.rows.Count +1]</InArgument>
       </Assign.Value>
     </Assign>
-    <ui:WriteRange AddHeaders="False" DataTable="[dtUpdatedInfo]" DisplayName="Write Range Workbook - Updated" sap:VirtualizedContainerService.HintSize="721.6,156" sap2010:WorkflowViewState.IdRef="WriteRange_2" SheetName="Data" StartingCell="[&quot;A&quot;&amp; NewRow]" WorkbookPath="[DataFolderPath+&quot;\Monitoring.xlsx&quot;]" />
-    <ui:LogMessage DisplayName="Log Message - Finishing Monitoring" sap:VirtualizedContainerService.HintSize="721.6,76" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Monitoring is complete&quot;]">
+    <ui:WriteRange AddHeaders="False" DataTable="[dtUpdatedInfo]" DisplayName="Write Range Workbook - Updated" sap:VirtualizedContainerService.HintSize="670.4,148" sap2010:WorkflowViewState.IdRef="WriteRange_2" SheetName="Data" StartingCell="[&quot;A&quot;&amp; NewRow]" WorkbookPath="[DataFolderPath+&quot;\Monitoring.xlsx&quot;]" />
+    <ui:LogMessage DisplayName="Log Message - Finishing Monitoring" sap:VirtualizedContainerService.HintSize="670.4,48" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Monitoring is complete&quot;]">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">False</x:Boolean>

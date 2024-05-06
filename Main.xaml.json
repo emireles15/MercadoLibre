@@ -64,6 +64,18 @@
       "IsPrincipal": true,
       "ArgumentType": 0,
       "DataSourceItems": null
+    },
+    {
+      "Name": "EmailSending_xaml__SendMailConnections_1_Connection0",
+      "DisplayName": "SendMailConnections_1_Connection",
+      "Category": null,
+      "Tooltip": "Send Email",
+      "Placeholder": null,
+      "Widget": "Connection",
+      "IsRequired": true,
+      "IsPrincipal": true,
+      "ArgumentType": 1,
+      "DataSourceItems": null
     }
   ]
 }
