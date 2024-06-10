@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="MonitoringPrices" VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="844,2959.2" sap2010:WorkflowViewState.IdRef="MonitoringPrices_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="MonitoringPrices" VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="842.4,965.6" sap2010:WorkflowViewState.IdRef="MonitoringPrices_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
       <x:String>System.Activities</x:String>
@@ -114,7 +114,7 @@
       <AssemblyReference>System.Linq.Async</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="MonitoringPrices" sap:VirtualizedContainerService.HintSize="732.8,2894.4" sap2010:WorkflowViewState.IdRef="Sequence_11">
+  <Sequence DisplayName="MonitoringPrices" sap:VirtualizedContainerService.HintSize="496,900.8" sap2010:WorkflowViewState.IdRef="Sequence_11">
     <Sequence.Variables>
       <Variable x:TypeArguments="sd:DataTable" Name="dtURLs" />
       <Variable x:TypeArguments="x:String" Name="ProductName" />
@@ -131,7 +131,7 @@
         <x:Boolean x:Key="IsPinned">False</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Message - Reading URLs" sap:VirtualizedContainerService.HintSize="670.4,56.8" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Reading the URLs uploaded&quot;]">
+    <ui:LogMessage DisplayName="Log Message - Reading URLs" sap:VirtualizedContainerService.HintSize="433.6,56.8" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Reading the URLs uploaded&quot;]">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -139,28 +139,28 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:LogMessage>
-    <ui:ReadRange Range="{x:Null}" AddHeaders="True" DataTable="[dtURLs]" DisplayName="Read Range Workbook - FolderPath" sap:VirtualizedContainerService.HintSize="670.4,120" sap2010:WorkflowViewState.IdRef="ReadRange_3" SheetName="URL" WorkbookPath="[DataFolderPath+&quot;\Monitoring.xlsx&quot;]" />
-    <ui:BuildDataTable DataTable="[dtUpdatedInfo]" DisplayName="Build Data Table" sap:VirtualizedContainerService.HintSize="670.4,92" sap2010:WorkflowViewState.IdRef="BuildDataTable_3" TableInfo="&lt;NewDataSet&gt;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xA;      &lt;xs:complexType&gt;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xA;            &lt;xs:complexType&gt;&#xA;              &lt;xs:sequence&gt;&#xA;                &lt;xs:element name=&quot;Product_x0020_Name&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xA;                  &lt;xs:simpleType&gt;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xA;                    &lt;/xs:restriction&gt;&#xA;                  &lt;/xs:simpleType&gt;&#xA;                &lt;/xs:element&gt;&#xA;                &lt;xs:element name=&quot;Price&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Discount_x0020_Price&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Discount&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Date&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;              &lt;/xs:sequence&gt;&#xA;            &lt;/xs:complexType&gt;&#xA;          &lt;/xs:element&gt;&#xA;        &lt;/xs:choice&gt;&#xA;      &lt;/xs:complexType&gt;&#xA;    &lt;/xs:element&gt;&#xA;  &lt;/xs:schema&gt;&#xA;&lt;/NewDataSet&gt;" />
-    <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[dtURLs]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="670.4,2050.4" sap2010:WorkflowViewState.IdRef="ForEachRow_2">
+    <ui:ReadRange Range="{x:Null}" AddHeaders="True" DataTable="[dtURLs]" DisplayName="Read Range Workbook - FolderPath" sap:VirtualizedContainerService.HintSize="433.6,120" sap2010:WorkflowViewState.IdRef="ReadRange_3" SheetName="URL" WorkbookPath="[DataFolderPath+&quot;\Monitoring.xlsx&quot;]" />
+    <ui:BuildDataTable DataTable="[dtUpdatedInfo]" DisplayName="Build Data Table" sap:VirtualizedContainerService.HintSize="433.6,92" sap2010:WorkflowViewState.IdRef="BuildDataTable_3" TableInfo="&lt;NewDataSet&gt;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xA;      &lt;xs:complexType&gt;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xA;            &lt;xs:complexType&gt;&#xA;              &lt;xs:sequence&gt;&#xA;                &lt;xs:element name=&quot;Product_x0020_Name&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xA;                  &lt;xs:simpleType&gt;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xA;                    &lt;/xs:restriction&gt;&#xA;                  &lt;/xs:simpleType&gt;&#xA;                &lt;/xs:element&gt;&#xA;                &lt;xs:element name=&quot;Price&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Discount_x0020_Price&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Discount&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Date&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;              &lt;/xs:sequence&gt;&#xA;            &lt;/xs:complexType&gt;&#xA;          &lt;/xs:element&gt;&#xA;        &lt;/xs:choice&gt;&#xA;      &lt;/xs:complexType&gt;&#xA;    &lt;/xs:element&gt;&#xA;  &lt;/xs:schema&gt;&#xA;&lt;/NewDataSet&gt;" />
+    <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[dtURLs]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="433.6,56.8" sap2010:WorkflowViewState.IdRef="ForEachRow_2">
       <ui:ForEachRow.Body>
         <ActivityAction x:TypeArguments="sd:DataRow">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="sd:DataRow" Name="CurrentRow" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="636.8,1852.8" sap2010:WorkflowViewState.IdRef="Sequence_15">
+          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="636.8,1401.6" sap2010:WorkflowViewState.IdRef="Sequence_15">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 <x:Boolean x:Key="IsPinned">False</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Browser Edge: Nueva pestaña" sap:VirtualizedContainerService.HintSize="574.4,1766.4" sap2010:WorkflowViewState.IdRef="NApplicationCard_5" InteractionMode="DebuggerApi" ScopeGuid="752f719e-9185-451f-aedf-5116f4434419" Version="V2">
+            <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Browser Edge: Nueva pestaña" sap:VirtualizedContainerService.HintSize="574.4,1312.8" sap2010:WorkflowViewState.IdRef="NApplicationCard_5" InteractionMode="DebuggerApi" ScopeGuid="752f719e-9185-451f-aedf-5116f4434419" Version="V2">
               <uix:NApplicationCard.Body>
                 <ActivityAction x:TypeArguments="x:Object">
                   <ActivityAction.Argument>
                     <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
                   </ActivityAction.Argument>
-                  <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="540.8,1526.4" sap2010:WorkflowViewState.IdRef="Sequence_12">
+                  <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="540.8,1072.8" sap2010:WorkflowViewState.IdRef="Sequence_12">
                     <Sequence.Variables>
                       <Variable x:TypeArguments="x:String" Name="OriginalPrice" />
                     </Sequence.Variables>
@@ -228,32 +228,38 @@
                         </uix:TargetAnchorable>
                       </uix:NGetText.Target>
                     </uix:NGetText>
-                    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="478.4,349.6" sap2010:WorkflowViewState.IdRef="TryCatch_2">
+                    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="478.4,56.8" sap2010:WorkflowViewState.IdRef="TryCatch_2">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                           <x:Boolean x:Key="IsPinned">False</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
                       <TryCatch.Try>
-                        <uix:NGetText DisplayName="Get Text 'Discount'" sap:VirtualizedContainerService.HintSize="333.6,157.6" sap2010:WorkflowViewState.IdRef="NGetText_10" ScopeIdentifier="752f719e-9185-451f-aedf-5116f4434419" TextString="[Discount]" Timeout="5" Version="V3">
+                        <uix:NGetText DisplayName="Get Text 'Discount'" sap:VirtualizedContainerService.HintSize="200,24.8" sap2010:WorkflowViewState.IdRef="NGetText_10" ScopeIdentifier="752f719e-9185-451f-aedf-5116f4434419" TextString="[Discount]" Timeout="5" Version="V3">
                           <uix:NGetText.Target>
-                            <uix:TargetAnchorable BrowserURL="https://articulo.mercadolibre.com.mx/MLM-1906954783-tenis-running-en-carretera-hombre-nike-pegasus-38-_JM#reco_item_pos=0&amp;reco_backend=item_decorator&amp;reco_backend_type=function&amp;reco_client=home_items-decorator-legacy&amp;reco_id=bfb47ad2-d322-46c7-ab9a-dfaf3eb769e0&amp;c_id=/home/navigation-recommendations-seed/element&amp;c_uid=638f947d-6a88-4cfb-bacd-99c688a57153&amp;da_id=navigation&amp;da_position=0&amp;id_origin=/home/dynamic_access&amp;da_sort_algorithm=ranker" CvTextArea="1405, 747, 94, 20" CvType="AnyWordGroup" DesignTimeRectangle="1407, 742, 90, 31" DesignTimeScaleFactor="1.25" ElementType="Text" FullSelectorArgument="&lt;webctrl class='andes-money-amount__discount' parentid='*' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl class='andes-money-amount__discount' parentid='*' tag='SPAN' type='' /&gt;" Guid="757b88a3-cfcb-4d9f-a263-815c89e1e98a" ImageBase64="" InformativeScreenshot="1749b7ed3622afb15e0976d407d85857.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Tenis Running En Carretera Hombre Nike Pegasus 38 | Envío gratis' /&gt;" SearchSteps="FuzzySelector" Version="V3" Visibility="Interactive">
+                            <uix:TargetAnchorable BrowserURL="https://articulo.mercadolibre.com.mx/MLM-1906954783-tenis-running-en-carretera-hombre-nike-pegasus-38-_JM#reco_item_pos=0&amp;reco_backend=item_decorator&amp;reco_backend_type=function&amp;reco_client=home_items-decorator-legacy&amp;reco_id=bfb47ad2-d322-46c7-ab9a-dfaf3eb769e0&amp;c_id=/home/navigation-recommendations-seed/element&amp;c_uid=638f947d-6a88-4cfb-bacd-99c688a57153&amp;da_id=navigation&amp;da_position=0&amp;id_origin=/home/dynamic_access&amp;da_sort_algorithm=ranker" CvTextArea="1401, 735, 94, 20" CvType="AnyWordGroup" DesignTimeRectangle="1403, 729, 91, 31" DesignTimeScaleFactor="1.25" ElementType="Text" FullSelectorArgument="&lt;webctrl class='andes-money-amount__discount' parentid='price' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl class='andes-money-amount__discount' parentid='price' tag='SPAN' type='' /&gt;" Guid="9babfdc7-5261-4f11-800e-e2ac11292aae" ImageBase64="" InformativeScreenshot="59860eabed7bc413b0a1a10398430a86.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='*' /&gt;" SearchSteps="FuzzySelector, CV" Version="V3" Visibility="Interactive">
                               <uix:TargetAnchorable.Anchors>
-                                <scg:List x:TypeArguments="uix:ITarget" Capacity="2">
-                                  <uix:Target CvTextArea="1269, 739, 106, 41" CvTextArgument="1,959" CvType="Text" DesignTimeRectangle="1270, 734, 102, 45" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='1,959' class='andes-money-amount__fraction' parentid='price' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='1,959' class='andes-money-amount__fraction' parentid='*' tag='SPAN' type='' check:innerText='1,959' /&gt;" SearchSteps="FuzzySelector" />
-                                  <uix:Target DesignTimeRectangle="1236, 592, 363, 65" ElementType="Text" FullSelectorArgument="&lt;webctrl tag='H1' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='H1' type='' class='ui-pdp-title' aaname='*' /&gt;" SearchSteps="FuzzySelector" />
+                                <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                                  <uix:Target DesignTimeRectangle="1236, 589, 363, 65" ElementType="Text" FullSelectorArgument="&lt;webctrl tag='H1' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='H1' type='' class='ui-pdp-title' aaname='*' /&gt;" SearchSteps="FuzzySelector" />
+                                  <uix:Target CvTextArea="1269, 727, 98, 40" CvTextArgument="1,679" CvType="Text" DesignTimeRectangle="1270, 721, 98, 45" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='1,679' class='andes-money-amount__fraction' parentid='price' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='*' class='andes-money-amount__fraction' parentid='*' tag='SPAN' type='' /&gt;" SearchSteps="FuzzySelector, CV" />
                                 </scg:List>
                               </uix:TargetAnchorable.Anchors>
                             </uix:TargetAnchorable>
                           </uix:NGetText.Target>
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
                         </uix:NGetText>
                       </TryCatch.Try>
                       <TryCatch.Catches>
-                        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="440,153.6" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+                        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="403.2,23.2" sap2010:WorkflowViewState.IdRef="Catch`1_1">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                               <x:Boolean x:Key="IsPinned">False</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
@@ -289,7 +295,7 @@
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
                       <If.Then>
-                        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,267.2" sap2010:WorkflowViewState.IdRef="Sequence_18">
+                        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,269.6" sap2010:WorkflowViewState.IdRef="Sequence_18">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -299,7 +305,7 @@
                             <uix:NGetText.Target>
                               <uix:TargetAnchorable BrowserURL="https://articulo.mercadolibre.com.mx/MLM-1906954783-tenis-running-en-carretera-hombre-nike-pegasus-38-_JM#reco_item_pos=0&amp;reco_backend=item_decorator&amp;reco_backend_type=function&amp;reco_client=home_items-decorator-legacy&amp;reco_id=bfb47ad2-d322-46c7-ab9a-dfaf3eb769e0&amp;c_id=/home/navigation-recommendations-seed/element&amp;c_uid=638f947d-6a88-4cfb-bacd-99c688a57153&amp;da_id=navigation&amp;da_position=0&amp;id_origin=/home/dynamic_access&amp;da_sort_algorithm=ranker" CvTextArea="1269, 739, 106, 41" CvType="AnyWordGroup" DesignTimeRectangle="1270, 734, 102, 45" DesignTimeScaleFactor="1.25" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='1,959' class='andes-money-amount__fraction' parentid='price' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl class='andes-money-amount__fraction' parentid='*' tag='SPAN' type='' /&gt;" Guid="8eb17256-d531-4100-82b1-ffaecf05f768" ImageBase64="" InformativeScreenshot="64563d3a4b07c708ed95625d8dc7d7a9.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Tenis Running En Carretera Hombre Nike Pegasus 38 | Envío gratis' /&gt;" SearchSteps="FuzzySelector" Version="V3" Visibility="Interactive">
                                 <uix:TargetAnchorable.Anchors>
-                                  <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                                  <scg:List x:TypeArguments="uix:ITarget" Capacity="2">
                                     <uix:Target DesignTimeRectangle="1236, 592, 363, 65" ElementType="Text" FullSelectorArgument="&lt;webctrl tag='H1' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='H1' type='' class='ui-pdp-title' aaname='*' /&gt;" SearchSteps="FuzzySelector" />
                                     <uix:Target CvTextArea="1234, 711, 67, 20" CvTextArgument="$-2,799" CvType="Text" DesignTimeRectangle="1251, 712, 49, 20" ElementType="Text" FullSelectorArgument="&lt;webctrl class='andes-money-amount__fraction' parentid='price' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl class='andes-money-amount__fraction' parentid='price' tag='SPAN' type='' aaname='*' /&gt;" SearchSteps="FuzzySelector, CV" />
                                   </scg:List>
@@ -310,7 +316,7 @@
                         </Sequence>
                       </If.Then>
                       <If.Else>
-                        <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,102.4" sap2010:WorkflowViewState.IdRef="Sequence_19">
+                        <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,104.8" sap2010:WorkflowViewState.IdRef="Sequence_19">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -442,7 +448,14 @@
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
                     </ui:CommentOut>
-                    <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{ProductName, OriginalPrice, DiscountPrice, Discount, Today.ToString}]" DataTable="[dtUpdatedInfo]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="478.4,212.8" sap2010:WorkflowViewState.IdRef="AddDataRow_2" />
+                    <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{ProductName, OriginalPrice, DiscountPrice, Discount, Today.ToString}]" DataTable="[dtUpdatedInfo]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="478.4,49.6" sap2010:WorkflowViewState.IdRef="AddDataRow_2">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                    </ui:AddDataRow>
                   </Sequence>
                 </ActivityAction>
               </uix:NApplicationCard.Body>
@@ -455,12 +468,12 @@
       </ui:ForEachRow.Body>
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:ForEachRow>
-    <ui:LogMessage DisplayName="Log Message - Excel Data Sheet" sap:VirtualizedContainerService.HintSize="670.4,56.8" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Reading information of Data Sheet&quot;]">
+    <ui:LogMessage DisplayName="Log Message - Excel Data Sheet" sap:VirtualizedContainerService.HintSize="433.6,56.8" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Reading information of Data Sheet&quot;]">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -468,8 +481,8 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:LogMessage>
-    <ui:ReadRange Range="{x:Null}" AddHeaders="False" DataTable="[dtData]" DisplayName="Read Range Workbook - Data Worksheet" sap:VirtualizedContainerService.HintSize="670.4,120" sap2010:WorkflowViewState.IdRef="ReadRange_4" SheetName="Data" WorkbookPath="[DataFolderPath+&quot;\Monitoring.xlsx&quot;]" />
-    <Assign DisplayName="Assign - Finding next empty row" sap:VirtualizedContainerService.HintSize="670.4,113.6" sap2010:WorkflowViewState.IdRef="Assign_4">
+    <ui:ReadRange Range="{x:Null}" AddHeaders="False" DataTable="[dtData]" DisplayName="Read Range Workbook - Data Worksheet" sap:VirtualizedContainerService.HintSize="433.6,120" sap2010:WorkflowViewState.IdRef="ReadRange_4" SheetName="Data" WorkbookPath="[DataFolderPath+&quot;\Monitoring.xlsx&quot;]" />
+    <Assign DisplayName="Assign - Finding next empty row" sap:VirtualizedContainerService.HintSize="433.6,113.6" sap2010:WorkflowViewState.IdRef="Assign_4">
       <Assign.To>
         <OutArgument x:TypeArguments="x:Int32">[NewRow]</OutArgument>
       </Assign.To>
@@ -477,8 +490,8 @@
         <InArgument x:TypeArguments="x:Int32">[dtData.rows.Count +1]</InArgument>
       </Assign.Value>
     </Assign>
-    <ui:WriteRange AddHeaders="False" DataTable="[dtUpdatedInfo]" DisplayName="Write Range Workbook - Updated" sap:VirtualizedContainerService.HintSize="670.4,148" sap2010:WorkflowViewState.IdRef="WriteRange_2" SheetName="Data" StartingCell="[&quot;A&quot;&amp; NewRow]" WorkbookPath="[DataFolderPath+&quot;\Monitoring.xlsx&quot;]" />
-    <ui:LogMessage DisplayName="Log Message - Finishing Monitoring" sap:VirtualizedContainerService.HintSize="670.4,48" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Monitoring is complete&quot;]">
+    <ui:WriteRange AddHeaders="False" DataTable="[dtUpdatedInfo]" DisplayName="Write Range Workbook - Updated" sap:VirtualizedContainerService.HintSize="433.6,148" sap2010:WorkflowViewState.IdRef="WriteRange_2" SheetName="Data" StartingCell="[&quot;A&quot;&amp; NewRow]" WorkbookPath="[DataFolderPath+&quot;\Monitoring.xlsx&quot;]" />
+    <ui:LogMessage DisplayName="Log Message - Finishing Monitoring" sap:VirtualizedContainerService.HintSize="433.6,48" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Monitoring is complete&quot;]">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">False</x:Boolean>
